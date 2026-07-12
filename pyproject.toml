@@ -5,5 +5,31 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "google-genai>=2.9.0",
+    "google-generativeai>=0.8.6",
+    "kaggle>=2.2.3",
+    "langchain>=1.3.11",
+    "langchain-community>=0.4.2",
+    "langchain-google-genai>=4.2.6",
+    "llama-index>=0.14.23",
+    "matplotlib>=3.11.0",
+    "networkx>=3.6.1",
+    "osmnx>=2.1.0",
+    "pulp>=3.3.2",
     "pypdf>=6.14.2",
+    "scipy>=1.18.0",
+    "wikipedia>=1.4.0",
+]
+[tool.ruff]
+line-length = 79
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+extend-select = ["E501"]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+    "nbstripout>=0.9.1",
+    "ruff>=0.15.21",
 ]

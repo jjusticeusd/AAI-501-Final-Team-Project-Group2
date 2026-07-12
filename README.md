@@ -1,5 +1,17 @@
 # AAI-501 Final Team Project — Group 2
 
+## Getting Started
+
+New to the repo? Set up your environment in one step (macOS):
+
+```bash
+./init.sh          # installs uv, syncs dependencies, registers the Jupyter kernel
+./start_jupyter.sh # launches Jupyter Lab
+```
+
+See **[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)** for full setup instructions,
+everyday `uv` commands, and the shared-notebook workflow.
+
 ## Project Checklist
 
 ### Module 1 — Team Setup
