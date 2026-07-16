@@ -19,19 +19,19 @@ everyday `uv` commands, and the shared-notebook workflow.
 - [x] Exchange contact info with all team members (Canvas, USD Email, or Slack)
 - [x] Create GitHub repository and add all team members as collaborators
 - [x] Add a `README.md` to the repository
-- [ ] Agree on a communication cadence for the rest of the project
+- [x] Agree on a communication cadence for the rest of the project
 
 ### Module 3 — Proposal *(Due: Assignment 3.3, 11:59 PM)*
-- [ ] Identify an AI-driven problem and dataset (≥1000 examples, not used in coursework)
-- [ ] Select at least two AI/ML algorithm types to investigate (e.g., Classification + Clustering)
-- [ ] Write 1–2 page proposal including:
-  - [ ] Clear problem statement
-  - [ ] Brief discussion of problem and intended algorithms/system
-  - [ ] Identification of specific related course topics
-  - [ ] Expected system behaviors and problem types the algorithms handle
-  - [ ] Issues/challenges you expect to focus on
-  - [ ] Reference list (APA 7) of books/papers/articles to inform the project
-- [ ] One team member submits the proposal to Canvas
+- [x] Identify an AI-driven problem and dataset (≥1000 examples, not used in coursework)
+- [x] Select at least two AI/ML algorithm types to investigate (e.g., Classification + Clustering)
+- [x] Write 1–2 page proposal including:
+  - [x] Clear problem statement
+  - [x] Brief discussion of problem and intended algorithms/system
+  - [x] Identification of specific related course topics
+  - [x] Expected system behaviors and problem types the algorithms handle
+  - [x] Issues/challenges you expect to focus on
+  - [x] Reference list (APA 7) of books/papers/articles to inform the project
+- [x] One team member submits the proposal to Canvas
 
 ### Module 4 — Status Update *(Due: Assignment 4.3, 11:59 PM)*
 - [ ] Submit the Final Team Project Status Update Form
