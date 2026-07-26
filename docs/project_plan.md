@@ -40,28 +40,63 @@ and the URL-string-only character-level model (§5c) as the harder,
 more realistic regime, and discuss both rather than picking one number
 to headline.
 
+Notebook 01 also turned up a few more things worth recording here
+(details and numbers are in the notebook):
+
+- **`IsHTTPS` is a collection artifact.** 100% of legitimate rows use
+  HTTPS — zero exceptions — vs. ~49% of phishing rows. "No HTTPS =
+  phishing" is never wrong on this dataset, which says more about
+  where the legitimate URLs were collected than about the real web.
+  Several other content flags are nearly as lopsided (`HasSocialNet`
+  0.5% vs. 79.5%, `HasCopyrightInfo` 5.7% vs. 80.8%). We keep these
+  features for the tabular models but call them out in the report —
+  dropping the six most lopsided flags only moves the quick-model
+  accuracy from 99.9% to 99.7%, so the easiness isn't hiding in a few
+  columns anyway.
+- **425 duplicate URLs** (always with the same label). Notebook 02
+  drops URL duplicates before splitting so the same URL can't land in
+  both train and test.
+- **Domain repetition is real but doesn't inflate scores**: 9% of rows
+  share a `Domain` with another row, but a domain-grouped split scores
+  the same as a naive random split (0.9995 vs. 0.9992). We use the
+  grouped split anyway as the safer setup — see §1.
+- **599 IP-address rows have junk "TLDs"** (the last octet of the IP,
+  e.g. `123`), all phishing. Data-quality quirk worth a sentence in
+  the report.
+- **`TLDLegitimateProb` is safe to use.** If UCI had computed it from
+  this dataset's own labels it would be target leakage; notebook 01
+  checked, and its correlation with the per-TLD share of legitimate
+  labels in our data is only ~0.18, so it came from an outside source.
+
 ## 1. Data prep & leakage handling (Notebook 01)
 
-- Drop `FILENAME` (row identifier, no signal).
-- Drop `URLSimilarityIndex` — the leaky feature. Document this decision
-  explicitly in the report with a before/after experiment: train one model
-  with it included and one without, show the accuracy gap, and use that
-  gap as evidence for why we excluded it from the "real" model.
+- `FILENAME` turns out not to exist in the `ucimlrepo` version of the
+  dataset (only the Kaggle CSV has it), so there's nothing to drop
+  there. Do drop the 425 duplicate URLs before splitting.
+- Drop `URLSimilarityIndex` — the leaky feature. Documented in notebook
+  01 with the before/after experiment: 99.6% accuracy on that single
+  column alone vs. 99.9% on everything else, reported as the
+  justification for excluding it.
 - Hold `URL` and `Domain` out of the tabular feature set (they're
   effectively identifiers), but don't discard them — they're the raw
   material for the engineered features in §2 and the input to the
   character-level model in §5c.
-- `TLD` is high-cardinality categorical — group rare TLDs into an "other"
-  bucket before encoding (or rely on `TLDLegitimateProb`, which is already
-  a provided numeric encoding of TLD risk).
-- Split strategy: stratified train/test split on `label`. Also check
-  whether the same `Domain` appears multiple times across rows (this
-  dataset includes content-scraped features per URL, so multiple pages
-  from one domain are plausible) — if so, do a **domain-grouped split**
-  (`GroupShuffleSplit` on `Domain`) instead of a naive row-level split, so
-  the model isn't tested on a domain it already saw in training. This is
-  a second, more subtle leakage channel worth checking and reporting on
-  either way.
+- `TLD` is high-cardinality categorical (695 values, and 599 rows have
+  junk numeric "TLDs" from IP-address URLs) — too many to one-hot
+  encode, so we rely on `TLDLegitimateProb` instead. Notebook 01
+  verified it isn't secretly computed from this dataset's labels
+  (corr ~0.18 with the per-TLD label share), so that's safe.
+- Split strategy: **domain-grouped split** (`GroupShuffleSplit` on
+  `Domain`), after dropping duplicate URLs. Notebook 01 answered the
+  "does `Domain` repeat?" question: yes, 5,526 domains repeat (9% of
+  rows), but the grouped split scores essentially the same as a naive
+  stratified one (0.9995 vs. 0.9992) — no inflation, we just keep the
+  grouped split because it's the safer choice and costs nothing.
+  Report both numbers in notebook 02. One caveat: exact `Domain`
+  matching under-groups subdomains (the top repeats are all gateways
+  to the same IPFS service: `ipfs.io`, `gateway.ipfs.io`,
+  `cf-ipfs.com`, ...); grouping by registered domain via `tldextract`
+  is the stricter option if we decide we want it.
 - No missing values per the UCI description, so this section is short —
   consistent with the assessment doc's note that cleaning is "moderate"
   fit for this dataset.
@@ -348,6 +383,6 @@ importance/interpretability), and a DL framework (`torch` or
    the Module 4–6 timeline, or should we treat any of these as "if time
    allows"?
 2. Division of labor above is a guess — who wants which notebook?
-3. Domain-grouped train/test split (§1) needs us to actually check
-   whether `Domain` repeats in the dataset before we know if it matters —
-   first thing to check once we load the data.
+3. ~~Domain-grouped train/test split needs checking~~ — done in
+   notebook 01: domains do repeat (9% of rows) but don't inflate the
+   score; grouped split adopted anyway (§1).
