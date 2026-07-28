@@ -1,3 +1,6 @@
+# macOS
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -219,3 +222,6 @@ __marimo__/
 
 # VScode
 .vscode/
+
+# Project data (fetched via code/fetch_data.py, not committed)
+data/
