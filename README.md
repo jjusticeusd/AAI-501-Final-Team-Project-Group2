@@ -28,7 +28,7 @@ for the dataset assessment.
 
 **Notebooks** (`code/`)
 - `01.ipynb` — data loading, leakage audit, EDA ✅
-- `02.ipynb` — classical models, tuning, imbalance ablation, cost layer
+- `02.ipynb` — classical models, tuning, imbalance ablation, cost layer ✅
 - `03.ipynb` — clustering + character-level DL + SOTA comparison
 
 ## Getting Started
@@ -71,11 +71,11 @@ everyday `uv` commands, and the shared-notebook workflow.
 ### Modules 4–6 — Implementation
 - [x] Set up project structure and development environment
 - [x] Acquire and perform initial data preprocessing (leakage audit + EDA, notebook 01)
-- [ ] Implement first AI/ML algorithm
-- [ ] Implement second AI/ML algorithm (different type)
+- [x] Implement first AI/ML algorithm (classification: LogReg / RandomForest / XGBoost, notebook 02)
+- [ ] Implement second AI/ML algorithm (different type — clustering, notebook 03)
 - [ ] Run experiments and comparisons between algorithms
-- [ ] Apply parameter tuning and/or feature selection as appropriate
-- [ ] Generate summary statistics and visualizations of findings
+- [x] Apply parameter tuning and/or feature selection as appropriate (RandomizedSearchCV + top-8, notebook 02)
+- [x] Generate summary statistics and visualizations of findings (notebook 02)
 - [ ] Follow PEP 8 style guide throughout all Python code
 - [ ] Commit code regularly to GitHub (all members contributing)
 
