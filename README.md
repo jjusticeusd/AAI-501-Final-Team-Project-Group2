@@ -1,12 +1,44 @@
 # AAI-501 Final Team Project — Group 2
 
+## Project Overview
+
+**Phishing URL detection** on the [PhiUSIIL dataset](https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset)
+(UCI id 967) — 235,795 URLs, 54 features, ~57% legitimate / 43% phishing.
+
+The dataset is trivially separable as-is (`URLSimilarityIndex` alone hits
+~99.6% accuracy), so the project is deliberately built around that fact:
+drop the leaky signal, model the realistic problem, and add work that goes
+beyond what the dataset hands us. This directly answers the professor's
+feedback — a unique twist, a state-of-the-art comparison, a
+business-relevant metric, and appropriate (mild, 57/43) imbalance
+handling. See **[docs/project_plan.md](docs/project_plan.md)** for the full
+plan and **[docs/phiusiil_phishing_assessment.md](docs/phiusiil_phishing_assessment.md)**
+for the dataset assessment.
+
+**Approach**
+- **Leakage-clean tabular models** — Logistic Regression, Random Forest,
+  XGBoost on a vetted feature set, with class-weighting vs. SMOTE ablation.
+- **Engineered features** (the "twist") — domain/URL Shannon entropy,
+  brand-impersonation edit distance, punycode and URL-shortener flags.
+- **Character-level deep model** on the raw URL string — leakage-immune,
+  realistic-difficulty comparison point.
+- **Clustering** of phishing rows into attack "families" (unsupervised).
+- **Cost-sensitive threshold layer** tuned to a business-relevant metric
+  rather than the default 0.5 cutoff.
+
+**Notebooks** (`code/`)
+- `01.ipynb` — data loading, leakage audit, EDA ✅
+- `02.ipynb` — classical models, tuning, imbalance ablation, cost layer ✅
+- `03.ipynb` — clustering + character-level DL + SOTA comparison
+
 ## Getting Started
 
 New to the repo? Set up your environment in one step (macOS):
 
 ```bash
-./init.sh          # installs uv, syncs dependencies, registers the Jupyter kernel
-./start_jupyter.sh # launches Jupyter Lab
+./init.sh                          # installs uv, syncs dependencies, registers the Jupyter kernel
+uv run python code/fetch_data.py   # caches the dataset to data/phiusiil.csv (run once)
+./start_jupyter.sh                 # launches Jupyter Lab
 ```
 
 See **[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)** for full setup instructions,
@@ -37,13 +69,13 @@ everyday `uv` commands, and the shared-notebook workflow.
 - [ ] Submit the Final Team Project Status Update Form
 
 ### Modules 4–6 — Implementation
-- [ ] Set up project structure and development environment
-- [ ] Acquire and perform initial data preprocessing
-- [ ] Implement first AI/ML algorithm
-- [ ] Implement second AI/ML algorithm (different type)
+- [x] Set up project structure and development environment
+- [x] Acquire and perform initial data preprocessing (leakage audit + EDA, notebook 01)
+- [x] Implement first AI/ML algorithm (classification: LogReg / RandomForest / XGBoost, notebook 02)
+- [ ] Implement second AI/ML algorithm (different type — clustering, notebook 03)
 - [ ] Run experiments and comparisons between algorithms
-- [ ] Apply parameter tuning and/or feature selection as appropriate
-- [ ] Generate summary statistics and visualizations of findings
+- [x] Apply parameter tuning and/or feature selection as appropriate (RandomizedSearchCV + top-8, notebook 02)
+- [x] Generate summary statistics and visualizations of findings (notebook 02)
 - [ ] Follow PEP 8 style guide throughout all Python code
 - [ ] Commit code regularly to GitHub (all members contributing)
 
