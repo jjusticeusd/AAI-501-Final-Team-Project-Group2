@@ -1,0 +1,1011 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/apasortcite//global/global}
+    \entry{althobaiti2023}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9d7d486db10f383df1d27b394cae902c}{%
+           family={Althobaiti},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{fullhash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{bibnamehash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{authorbibnamehash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{authornamehash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{authorfullhash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{VERIFY full citation (authors, venue).}
+      \field{title}{Clustering phishing campaigns}
+      \field{year}{2023}
+    \endentry
+    \entry{dalton2025}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=39e0596051890f93ec27d25b4cb41f70}{%
+           family={Dalton},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{fullhash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{bibnamehash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{authorbibnamehash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{authornamehash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{authorfullhash}{967c513a75617f880f555f1ccef0edbc}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{VERIFY full citation (authors, venue).}
+      \field{title}{On benchmark leakage in phishing detection}
+      \field{year}{2025}
+    \endentry
+    \entry{das2019sok}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=ed5ddb5d2a0b8a2b18adea9606798ab3}{%
+           family={Das},
+           familyi={D\bibinitperiod},
+           given={Avisha},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3156f185ddd12a51dff295f815eb03f7}{%
+           family={Baki},
+           familyi={B\bibinitperiod},
+           given={Shahryar},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8acb985b30d6e35b23db2d75181c05f}{%
+           family={El\bibnamedelima Aassal},
+           familyi={E\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Ayman},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f63f7e1460e2b4ba5bea67bec749151b}{%
+           family={Verma},
+           familyi={V\bibinitperiod},
+           given={Rakesh},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d9d6869cfb2a453c4b590c6ab5fe69b}{%
+           family={Dunbar},
+           familyi={D\bibinitperiod},
+           given={Arthur},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{eae0347bd64e304915362a7bc8242068}
+      \strng{fullhash}{e7e97704dc62c6607145a3312c43ffb6}
+      \strng{bibnamehash}{e7e97704dc62c6607145a3312c43ffb6}
+      \strng{authorbibnamehash}{e7e97704dc62c6607145a3312c43ffb6}
+      \strng{authornamehash}{eae0347bd64e304915362a7bc8242068}
+      \strng{authorfullhash}{e7e97704dc62c6607145a3312c43ffb6}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Communications Surveys \& Tutorials}
+      \field{note}{VERIFY volume/pages/DOI.}
+      \field{title}{{SoK}: A comprehensive reexamination of phishing research from the security perspective}
+      \field{year}{2019}
+    \endentry
+    \entry{dubey2025}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=52560fd57ae30ca3b1b080269f463aca}{%
+           family={Dubey},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{fullhash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{bibnamehash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{authorbibnamehash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{authornamehash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{authorfullhash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY full author list and title.}
+      \field{title}{Character-{CNN} with {LightGBM} for phishing detection}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2512.16717
+      \endverb
+    \endentry
+    \entry{feng2022}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2bc6cc01f9d91145c255f0d6d7ccce8b}{%
+           family={Feng},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{fullhash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{bibnamehash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{authorbibnamehash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{authornamehash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{authorfullhash}{5f7b012fe4552a56b16cbe90496924ea}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PeerJ Computer Science}
+      \field{note}{VERIFY author list and title.}
+      \field{title}{Clustering phishing kits}
+      \field{volume}{8}
+      \field{year}{2022}
+      \field{pages}{e868}
+      \range{pages}{-1}
+    \endentry
+    \entry{kim2014}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1fecefbf07117382be6f83e7910ea8a0}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Yoon},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{fullhash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{bibnamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authorbibnamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authornamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authorfullhash}{1fecefbf07117382be6f83e7910ea8a0}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)}
+      \field{note}{arXiv:1408.5882}
+      \field{title}{Convolutional neural networks for sentence classification}
+      \field{year}{2014}
+      \field{pages}{1746\bibrangedash 1751}
+      \range{pages}{6}
+    \endentry
+    \entry{maneriker2021urltran}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=09e65fcf1e7fd15cf6f47bdc99595121}{%
+           family={Maneriker},
+           familyi={M\bibinitperiod},
+           given={Pranav},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7531466e9f07af97238d0de3e696e836}
+      \strng{fullhash}{7531466e9f07af97238d0de3e696e836}
+      \strng{bibnamehash}{7531466e9f07af97238d0de3e696e836}
+      \strng{authorbibnamehash}{7531466e9f07af97238d0de3e696e836}
+      \strng{authornamehash}{7531466e9f07af97238d0de3e696e836}
+      \strng{authorfullhash}{7531466e9f07af97238d0de3e696e836}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY full author list.}
+      \field{title}{{URLTran}: Improving phishing {URL} detection using transformers}
+      \field{year}{2021}
+      \verb{eprint}
+      \verb 2106.05256
+      \endverb
+    \endentry
+    \entry{minilm2024}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=989fcd5a19cafdd016f596cca35afc03}{%
+           family={{MiniLM-CNN-LSTM authors}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{fullhash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{bibnamehash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{authorbibnamehash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{authornamehash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{authorfullhash}{989fcd5a19cafdd016f596cca35afc03}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Technologies}
+      \field{note}{MDPI. VERIFY authors, volume, pages.}
+      \field{title}{A {MiniLM}-{CNN}-{LSTM} hybrid for phishing {URL} detection}
+      \field{year}{2024}
+    \endentry
+    \entry{mohammad2014}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a7b508a99fd5050e67db6a203c47e5d9}{%
+           family={Mohammad},
+           familyi={M\bibinitperiod},
+           given={Rami\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3c90cdc9332984ba8864cbc3daf37ada}{%
+           family={Thabtah},
+           familyi={T\bibinitperiod},
+           given={Fadi},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f878bf4b107f76be74ab70b01930954}{%
+           family={McCluskey},
+           familyi={M\bibinitperiod},
+           given={Lee},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{970cc720aa0fa005ad75fd86112bda8e}
+      \strng{fullhash}{d8a76a0e3218082ca8aa2a6edf639b65}
+      \strng{bibnamehash}{d8a76a0e3218082ca8aa2a6edf639b65}
+      \strng{authorbibnamehash}{d8a76a0e3218082ca8aa2a6edf639b65}
+      \strng{authornamehash}{970cc720aa0fa005ad75fd86112bda8e}
+      \strng{authorfullhash}{d8a76a0e3218082ca8aa2a6edf639b65}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Computing and Applications}
+      \field{number}{2}
+      \field{title}{Predicting phishing websites based on self-structuring neural network}
+      \field{volume}{25}
+      \field{year}{2014}
+      \field{pages}{443\bibrangedash 458}
+      \range{pages}{16}
+    \endentry
+    \entry{omari2025}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a48715a6bb00ad3683a9ae2d0fe89e49}{%
+           family={Omari},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{fullhash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{bibnamehash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{authorbibnamehash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{authornamehash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{authorfullhash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Advanced Computer Science and Applications}
+      \field{note}{VERIFY full author list, title, pages.}
+      \field{number}{2}
+      \field{title}{{SMOTE-NC} with {XGBoost} for phishing detection}
+      \field{volume}{16}
+      \field{year}{2025}
+    \endentry
+    \entry{pentapalli2025}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=62d43c5fb7f5b335da86a2f2f4070d74}{%
+           family={Pentapalli},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1dc421deb9090e2310d1386480381cae}
+      \strng{fullhash}{1dc421deb9090e2310d1386480381cae}
+      \strng{bibnamehash}{1dc421deb9090e2310d1386480381cae}
+      \strng{authorbibnamehash}{1dc421deb9090e2310d1386480381cae}
+      \strng{authornamehash}{1dc421deb9090e2310d1386480381cae}
+      \strng{authorfullhash}{1dc421deb9090e2310d1386480381cae}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY full author list and title.}
+      \field{title}{Phishing detection using a {TSK} fuzzy classifier}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2504.18636
+      \endverb
+    \endentry
+    \entry{prasad2024phiusiil}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2c9a350c6a341fadb94d427c1c10a0e6}{%
+           family={Prasad},
+           familyi={P\bibinitperiod},
+           given={Arvind},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=75277b40bbdda7ffabae5700125585c2}{%
+           family={Chandra},
+           familyi={C\bibinitperiod},
+           given={Shalini},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{09f24a60023130496a8e8a235a65898f}
+      \strng{fullhash}{09f24a60023130496a8e8a235a65898f}
+      \strng{bibnamehash}{09f24a60023130496a8e8a235a65898f}
+      \strng{authorbibnamehash}{09f24a60023130496a8e8a235a65898f}
+      \strng{authornamehash}{09f24a60023130496a8e8a235a65898f}
+      \strng{authorfullhash}{09f24a60023130496a8e8a235a65898f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& Security}
+      \field{note}{VERIFY exact page/DOI. Dataset also at UCI ML Repository, id 967.}
+      \field{title}{{PhiUSIIL}: A diverse security profile empowered phishing {URL} detection framework based on similarity index and incremental learning}
+      \field{volume}{136}
+      \field{year}{2024}
+      \field{pages}{103545}
+      \range{pages}{1}
+    \endentry
+    \entry{sahingoz2019}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0675a897d8182ed4db72423d4ffb43d5}{%
+           family={Sahingoz},
+           familyi={S\bibinitperiod},
+           given={Ozgur\bibnamedelima Koray},
+           giveni={O\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4e981b472a5c5a93039669190996d402}{%
+           family={Buber},
+           familyi={B\bibinitperiod},
+           given={Ebubekir},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cea2829e75ee1928cdff2bd8a9b774af}{%
+           family={Demir},
+           familyi={D\bibinitperiod},
+           given={Onder},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f80b2c04025418a0645ce7a6468a0e55}{%
+           family={Diri},
+           familyi={D\bibinitperiod},
+           given={Banu},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{13fa75690affdb75e1815576ee5db6ca}
+      \strng{fullhash}{5e0ce91b44593b4883e4fb7f5eb95e97}
+      \strng{bibnamehash}{5e0ce91b44593b4883e4fb7f5eb95e97}
+      \strng{authorbibnamehash}{5e0ce91b44593b4883e4fb7f5eb95e97}
+      \strng{authornamehash}{13fa75690affdb75e1815576ee5db6ca}
+      \strng{authorfullhash}{5e0ce91b44593b4883e4fb7f5eb95e97}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Expert Systems with Applications}
+      \field{title}{Machine learning based phishing detection from {URLs}}
+      \field{volume}{117}
+      \field{year}{2019}
+      \field{pages}{345\bibrangedash 357}
+      \range{pages}{13}
+    \endentry
+    \entry{yerima2020}{online}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1d98abb4d1674cd6d8f464d28a518c6a}{%
+           family={Yerima},
+           familyi={Y\bibinitperiod},
+           given={Suleiman\bibnamedelima Y.},
+           giveni={S\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d0a3a6c8754daf6eb7c600b180ecf05}{%
+           family={Alzaylaee},
+           familyi={A\bibinitperiod},
+           given={Mohammed\bibnamedelima K.},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{fullhash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{bibnamehash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{authorbibnamehash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{authornamehash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{authorfullhash}{201f5488ae3165f2e37fdd42f57ff738}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY exact title/venue.}
+      \field{title}{High accuracy phishing detection based on convolutional neural networks}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 2004.03960
+      \endverb
+    \endentry
+    \entry{zia2025}{online}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=af740078b2a9759e1b7d856ac4a9c1b9}{%
+           family={Zia},
+           familyi={Z\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=21af5dd828c0978abab187cba316d8e0}{%
+           family={Kalidass},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{fullhash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{bibnamehash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{authorbibnamehash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{authornamehash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{authorfullhash}{3aedb2a6f3754d2df07913f71168e072}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY full author list and title.}
+      \field{title}{Locality-sensitive hashing of lexical {URL} tokens}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2502.13171
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{nyt/global//global/global}
+    \entry{althobaiti2023}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9d7d486db10f383df1d27b394cae902c}{%
+           family={Althobaiti},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{fullhash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{bibnamehash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{authorbibnamehash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{authornamehash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \strng{authorfullhash}{82fe78b67bf822a21d3d0d28720cd70c}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{VERIFY full citation (authors, venue).}
+      \field{title}{Clustering phishing campaigns}
+      \field{year}{2023}
+    \endentry
+    \entry{dalton2025}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=39e0596051890f93ec27d25b4cb41f70}{%
+           family={Dalton},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{fullhash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{bibnamehash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{authorbibnamehash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{authornamehash}{967c513a75617f880f555f1ccef0edbc}
+      \strng{authorfullhash}{967c513a75617f880f555f1ccef0edbc}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{VERIFY full citation (authors, venue).}
+      \field{title}{On benchmark leakage in phishing detection}
+      \field{year}{2025}
+    \endentry
+    \entry{das2019sok}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=ed5ddb5d2a0b8a2b18adea9606798ab3}{%
+           family={Das},
+           familyi={D\bibinitperiod},
+           given={Avisha},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3156f185ddd12a51dff295f815eb03f7}{%
+           family={Baki},
+           familyi={B\bibinitperiod},
+           given={Shahryar},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c8acb985b30d6e35b23db2d75181c05f}{%
+           family={El\bibnamedelima Aassal},
+           familyi={E\bibinitperiod\bibinitdelim A\bibinitperiod},
+           given={Ayman},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f63f7e1460e2b4ba5bea67bec749151b}{%
+           family={Verma},
+           familyi={V\bibinitperiod},
+           given={Rakesh},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8d9d6869cfb2a453c4b590c6ab5fe69b}{%
+           family={Dunbar},
+           familyi={D\bibinitperiod},
+           given={Arthur},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{eae0347bd64e304915362a7bc8242068}
+      \strng{fullhash}{e7e97704dc62c6607145a3312c43ffb6}
+      \strng{bibnamehash}{e7e97704dc62c6607145a3312c43ffb6}
+      \strng{authorbibnamehash}{e7e97704dc62c6607145a3312c43ffb6}
+      \strng{authornamehash}{eae0347bd64e304915362a7bc8242068}
+      \strng{authorfullhash}{e7e97704dc62c6607145a3312c43ffb6}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Communications Surveys \& Tutorials}
+      \field{note}{VERIFY volume/pages/DOI.}
+      \field{title}{{SoK}: A comprehensive reexamination of phishing research from the security perspective}
+      \field{year}{2019}
+    \endentry
+    \entry{dubey2025}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=52560fd57ae30ca3b1b080269f463aca}{%
+           family={Dubey},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{fullhash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{bibnamehash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{authorbibnamehash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{authornamehash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \strng{authorfullhash}{4635764aebf0041e844a11ee2c8f0cc6}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY full author list and title.}
+      \field{title}{Character-{CNN} with {LightGBM} for phishing detection}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2512.16717
+      \endverb
+    \endentry
+    \entry{feng2022}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2bc6cc01f9d91145c255f0d6d7ccce8b}{%
+           family={Feng},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{fullhash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{bibnamehash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{authorbibnamehash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{authornamehash}{5f7b012fe4552a56b16cbe90496924ea}
+      \strng{authorfullhash}{5f7b012fe4552a56b16cbe90496924ea}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PeerJ Computer Science}
+      \field{note}{VERIFY author list and title.}
+      \field{title}{Clustering phishing kits}
+      \field{volume}{8}
+      \field{year}{2022}
+      \field{pages}{e868}
+      \range{pages}{-1}
+    \endentry
+    \entry{kim2014}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1fecefbf07117382be6f83e7910ea8a0}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Yoon},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{fullhash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{bibnamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authorbibnamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authornamehash}{1fecefbf07117382be6f83e7910ea8a0}
+      \strng{authorfullhash}{1fecefbf07117382be6f83e7910ea8a0}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP)}
+      \field{note}{arXiv:1408.5882}
+      \field{title}{Convolutional neural networks for sentence classification}
+      \field{year}{2014}
+      \field{pages}{1746\bibrangedash 1751}
+      \range{pages}{6}
+    \endentry
+    \entry{maneriker2021urltran}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=09e65fcf1e7fd15cf6f47bdc99595121}{%
+           family={Maneriker},
+           familyi={M\bibinitperiod},
+           given={Pranav},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7531466e9f07af97238d0de3e696e836}
+      \strng{fullhash}{7531466e9f07af97238d0de3e696e836}
+      \strng{bibnamehash}{7531466e9f07af97238d0de3e696e836}
+      \strng{authorbibnamehash}{7531466e9f07af97238d0de3e696e836}
+      \strng{authornamehash}{7531466e9f07af97238d0de3e696e836}
+      \strng{authorfullhash}{7531466e9f07af97238d0de3e696e836}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY full author list.}
+      \field{title}{{URLTran}: Improving phishing {URL} detection using transformers}
+      \field{year}{2021}
+      \verb{eprint}
+      \verb 2106.05256
+      \endverb
+    \endentry
+    \entry{minilm2024}{article}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=989fcd5a19cafdd016f596cca35afc03}{%
+           family={{MiniLM-CNN-LSTM authors}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{fullhash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{bibnamehash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{authorbibnamehash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{authornamehash}{989fcd5a19cafdd016f596cca35afc03}
+      \strng{authorfullhash}{989fcd5a19cafdd016f596cca35afc03}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Technologies}
+      \field{note}{MDPI. VERIFY authors, volume, pages.}
+      \field{title}{A {MiniLM}-{CNN}-{LSTM} hybrid for phishing {URL} detection}
+      \field{year}{2024}
+    \endentry
+    \entry{mohammad2014}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=a7b508a99fd5050e67db6a203c47e5d9}{%
+           family={Mohammad},
+           familyi={M\bibinitperiod},
+           given={Rami\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3c90cdc9332984ba8864cbc3daf37ada}{%
+           family={Thabtah},
+           familyi={T\bibinitperiod},
+           given={Fadi},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2f878bf4b107f76be74ab70b01930954}{%
+           family={McCluskey},
+           familyi={M\bibinitperiod},
+           given={Lee},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{970cc720aa0fa005ad75fd86112bda8e}
+      \strng{fullhash}{d8a76a0e3218082ca8aa2a6edf639b65}
+      \strng{bibnamehash}{d8a76a0e3218082ca8aa2a6edf639b65}
+      \strng{authorbibnamehash}{d8a76a0e3218082ca8aa2a6edf639b65}
+      \strng{authornamehash}{970cc720aa0fa005ad75fd86112bda8e}
+      \strng{authorfullhash}{d8a76a0e3218082ca8aa2a6edf639b65}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Computing and Applications}
+      \field{number}{2}
+      \field{title}{Predicting phishing websites based on self-structuring neural network}
+      \field{volume}{25}
+      \field{year}{2014}
+      \field{pages}{443\bibrangedash 458}
+      \range{pages}{16}
+    \endentry
+    \entry{omari2025}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a48715a6bb00ad3683a9ae2d0fe89e49}{%
+           family={Omari},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{fullhash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{bibnamehash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{authorbibnamehash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{authornamehash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \strng{authorfullhash}{f5bd1c75762aa77ca8b2a14536d2701c}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Advanced Computer Science and Applications}
+      \field{note}{VERIFY full author list, title, pages.}
+      \field{number}{2}
+      \field{title}{{SMOTE-NC} with {XGBoost} for phishing detection}
+      \field{volume}{16}
+      \field{year}{2025}
+    \endentry
+    \entry{pentapalli2025}{online}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=62d43c5fb7f5b335da86a2f2f4070d74}{%
+           family={Pentapalli},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1dc421deb9090e2310d1386480381cae}
+      \strng{fullhash}{1dc421deb9090e2310d1386480381cae}
+      \strng{bibnamehash}{1dc421deb9090e2310d1386480381cae}
+      \strng{authorbibnamehash}{1dc421deb9090e2310d1386480381cae}
+      \strng{authornamehash}{1dc421deb9090e2310d1386480381cae}
+      \strng{authorfullhash}{1dc421deb9090e2310d1386480381cae}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY full author list and title.}
+      \field{title}{Phishing detection using a {TSK} fuzzy classifier}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2504.18636
+      \endverb
+    \endentry
+    \entry{prasad2024phiusiil}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=2c9a350c6a341fadb94d427c1c10a0e6}{%
+           family={Prasad},
+           familyi={P\bibinitperiod},
+           given={Arvind},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=75277b40bbdda7ffabae5700125585c2}{%
+           family={Chandra},
+           familyi={C\bibinitperiod},
+           given={Shalini},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{09f24a60023130496a8e8a235a65898f}
+      \strng{fullhash}{09f24a60023130496a8e8a235a65898f}
+      \strng{bibnamehash}{09f24a60023130496a8e8a235a65898f}
+      \strng{authorbibnamehash}{09f24a60023130496a8e8a235a65898f}
+      \strng{authornamehash}{09f24a60023130496a8e8a235a65898f}
+      \strng{authorfullhash}{09f24a60023130496a8e8a235a65898f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computers \& Security}
+      \field{note}{VERIFY exact page/DOI. Dataset also at UCI ML Repository, id 967.}
+      \field{title}{{PhiUSIIL}: A diverse security profile empowered phishing {URL} detection framework based on similarity index and incremental learning}
+      \field{volume}{136}
+      \field{year}{2024}
+      \field{pages}{103545}
+      \range{pages}{1}
+    \endentry
+    \entry{sahingoz2019}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=0675a897d8182ed4db72423d4ffb43d5}{%
+           family={Sahingoz},
+           familyi={S\bibinitperiod},
+           given={Ozgur\bibnamedelima Koray},
+           giveni={O\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4e981b472a5c5a93039669190996d402}{%
+           family={Buber},
+           familyi={B\bibinitperiod},
+           given={Ebubekir},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cea2829e75ee1928cdff2bd8a9b774af}{%
+           family={Demir},
+           familyi={D\bibinitperiod},
+           given={Onder},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f80b2c04025418a0645ce7a6468a0e55}{%
+           family={Diri},
+           familyi={D\bibinitperiod},
+           given={Banu},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{13fa75690affdb75e1815576ee5db6ca}
+      \strng{fullhash}{5e0ce91b44593b4883e4fb7f5eb95e97}
+      \strng{bibnamehash}{5e0ce91b44593b4883e4fb7f5eb95e97}
+      \strng{authorbibnamehash}{5e0ce91b44593b4883e4fb7f5eb95e97}
+      \strng{authornamehash}{13fa75690affdb75e1815576ee5db6ca}
+      \strng{authorfullhash}{5e0ce91b44593b4883e4fb7f5eb95e97}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Expert Systems with Applications}
+      \field{title}{Machine learning based phishing detection from {URLs}}
+      \field{volume}{117}
+      \field{year}{2019}
+      \field{pages}{345\bibrangedash 357}
+      \range{pages}{13}
+    \endentry
+    \entry{yerima2020}{online}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=1d98abb4d1674cd6d8f464d28a518c6a}{%
+           family={Yerima},
+           familyi={Y\bibinitperiod},
+           given={Suleiman\bibnamedelima Y.},
+           giveni={S\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3d0a3a6c8754daf6eb7c600b180ecf05}{%
+           family={Alzaylaee},
+           familyi={A\bibinitperiod},
+           given={Mohammed\bibnamedelima K.},
+           giveni={M\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{fullhash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{bibnamehash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{authorbibnamehash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{authornamehash}{201f5488ae3165f2e37fdd42f57ff738}
+      \strng{authorfullhash}{201f5488ae3165f2e37fdd42f57ff738}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY exact title/venue.}
+      \field{title}{High accuracy phishing detection based on convolutional neural networks}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 2004.03960
+      \endverb
+    \endentry
+    \entry{zia2025}{online}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=af740078b2a9759e1b7d856ac4a9c1b9}{%
+           family={Zia},
+           familyi={Z\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=21af5dd828c0978abab187cba316d8e0}{%
+           family={Kalidass},
+           familyi={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{fullhash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{bibnamehash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{authorbibnamehash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{authornamehash}{3aedb2a6f3754d2df07913f71168e072}
+      \strng{authorfullhash}{3aedb2a6f3754d2df07913f71168e072}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{note}{VERIFY full author list and title.}
+      \field{title}{Locality-sensitive hashing of lexical {URL} tokens}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2502.13171
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
