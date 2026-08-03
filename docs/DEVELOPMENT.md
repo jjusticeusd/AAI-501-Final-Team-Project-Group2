@@ -71,9 +71,8 @@ A few habits keep the notebook mergeable when several people touch it:
 - **Sync before you start:** `git pull` and then `uv sync` in case deps changed.
 - **Divide the work by cells/sections** so two people rarely edit the same cell.
 - **Run "Restart Kernel and Run All"** before committing so execution counts and
-  outputs are consistent.
-- **Strip outputs before committing** with `./strip_notebooks.sh` so diffs stay
-  small and merge conflicts are rare.
+  outputs are consistent. Notebooks are committed **with** their outputs so the
+  results are readable without re-running.
 - **Commit small and often**, and push so others can pull your changes early.
 - **Pick the "AAI-501 (Group 2)" kernel** — not a random global kernel — so the
   notebook's saved kernel metadata stays consistent across the team.

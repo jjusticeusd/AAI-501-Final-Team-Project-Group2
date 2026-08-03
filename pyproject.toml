@@ -1,7 +1,7 @@
 [project]
 name = "aai-501-final-team-project-group2"
 version = "0.1.0"
-description = "Add your description here"
+description = "Phishing URL detection on the PhiUSIIL dataset — AAI-501 Final Team Project (Group 2)"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [

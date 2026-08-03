@@ -1,109 +1,121 @@
-# AAI-501 Final Team Project — Group 2
+# Phishing URL Detection — AAI-501 Final Team Project (Group 2)
 
-## Project Overview
+**Group 2:** Pranav Dhinakar, Jason Justice, Guna Pasupathy
 
-**Phishing URL detection** on the [PhiUSIIL dataset](https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset)
-(UCI id 967) — 235,795 URLs, 54 features, ~57% legitimate / 43% phishing.
+Detecting phishing URLs on the **PhiUSIIL** dataset, built deliberately
+around the dataset's biggest weakness — it is *too easy* — to produce an
+honest, realistic study rather than a meaningless 100%-accuracy headline.
 
-The dataset is trivially separable as-is (`URLSimilarityIndex` alone hits
-~99.6% accuracy), so the project is deliberately built around that fact:
-drop the leaky signal, model the realistic problem, and add work that goes
-beyond what the dataset hands us. This directly answers the professor's
-feedback — a unique twist, a state-of-the-art comparison, a
-business-relevant metric, and appropriate (mild, 57/43) imbalance
-handling. See **[docs/project_plan.md](docs/project_plan.md)** for the full
-plan and **[docs/phiusiil_phishing_assessment.md](docs/phiusiil_phishing_assessment.md)**
-for the dataset assessment.
+## The problem
 
-**Approach**
+Phishing URLs impersonate legitimate sites to steal credentials. We frame
+this as a binary classification problem on the
+[PhiUSIIL Phishing URL Dataset](https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset)
+(UCI id 967): **235,795 URLs, 54 features, ~57% legitimate / 43% phishing**
+— mild imbalance, not the severe skew often assumed.
+
+The catch that shapes the whole project: **PhiUSIIL is trivially separable
+as delivered.** The UCI-provided `URLSimilarityIndex` is a similarity score
+against known-legitimate URLs — it essentially already contains the answer,
+and a model using it alone reaches ~99.6% accuracy. Worse, the *remaining*
+content/structural features as a set still reach ~99.9%. Dumping all 54
+features into a model yields ~100% accuracy and nothing to analyze.
+
+So we treat that as the design constraint, not a result: **drop the leaky
+signal, model the harder realistic problem, and be explicit about what is
+actually learnable.** This directly answers our proposal feedback — a unique
+twist beyond the raw dataset, a state-of-the-art comparison, a
+business-relevant metric, and appropriate (mild) imbalance handling.
+
+## Approach — the "twist"
+
 - **Leakage-clean tabular models** — Logistic Regression, Random Forest,
-  XGBoost on a vetted feature set, with class-weighting vs. SMOTE ablation.
-- **Engineered features** (the "twist") — domain/URL Shannon entropy,
+  and XGBoost on a vetted, non-leaky feature set.
+- **Engineered features** — domain/URL Shannon entropy,
   brand-impersonation edit distance, punycode and URL-shortener flags.
-- **Character-level deep model** on the raw URL string — leakage-immune,
-  realistic-difficulty comparison point.
-- **Clustering** of phishing rows into attack "families" (unsupervised).
-- **Cost-sensitive threshold layer** tuned to a business-relevant metric
-  rather than the default 0.5 cutoff.
+- **Character-level CNN on the raw URL string** — leakage-immune by
+  construction (it never sees `URLSimilarityIndex` or any engineered
+  feature); the harder, more honest comparison point.
+- **Clustering** of phishing URLs into unsupervised attack "families."
+- **Cost-sensitive threshold layer** — tuned to an asymmetric
+  false-negative / false-positive cost instead of a default 0.5 cutoff.
 
-**Notebooks** (`code/`)
-- `01.ipynb` — data loading, leakage audit, EDA ✅
-- `02.ipynb` — classical models, tuning, imbalance ablation, cost layer ✅
-- `03.ipynb` — clustering + character-level DL + SOTA comparison
+## Notebooks
 
-## Getting Started
+Run in order; each hands artifacts to the next via `data/*.json`.
 
-New to the repo? Set up your environment in one step (macOS):
+### `code/01_load_leakage_eda.ipynb` — data prep, leakage audit, EDA
+Loads the dataset, checks class balance and duplicates, then runs a
+three-stage **leakage audit**: (1) `URLSimilarityIndex`, (2) "too-perfect"
+binary flags such as `IsHTTPS` (100% of legitimate rows use HTTPS — a
+collection artifact), and (3) repeated domains and the train/test split
+strategy (`GroupShuffleSplit` on `Domain`). Closes with feature-vs-label
+EDA and saves the agreed **safe-feature manifest**
+(`01_feature_columns.json`) consumed by the other two notebooks.
+
+### `code/02_classical_models.ipynb` — classical models & cost analysis
+Builds the engineered "twist" features, then trains and compares **Logistic
+Regression, Random Forest, and XGBoost**. Includes a class-imbalance
+ablation (class weighting vs. SMOTE), hyperparameter tuning
+(`RandomizedSearchCV`), feature-importance analysis, a top-8-feature reduced
+model, and a **cost-sensitive decision layer** that sweeps the threshold to
+minimize expected cost per 1,000 URLs — plus a discussion of why the "right"
+metric depends on the deployment scenario (browser warning vs. mail
+gateway).
+
+### `code/03_charcnn_clustering_sota.ipynb` — deep learning, clustering, SOTA
+Trains a **character-level CNN on the raw URL string only** (parallel 3/5/7
+convolutions over character embeddings) — the leakage-immune, realistic
+regime. Then runs **unsupervised clustering** (KMeans with elbow/silhouette
+selection, cross-checked with HDBSCAN) to surface phishing attack families,
+and closes with a **state-of-the-art comparison** placing our results
+against the published literature (full comparison table and citations live
+in this notebook).
+
+## Key findings (kept honest)
+
+- On the leakage-clean tabular features, all three classifiers **saturate at
+  ~99.99% accuracy** — the dataset is genuinely easy, so the model *ranking*
+  is not the interesting result.
+- The **URL-only character CNN (~99.85%)** is the more meaningful number: it
+  cannot see any leaky or engineered feature, yet nearly matches the tabular
+  models — evidence that the separability lives in the raw URL strings
+  themselves.
+- The **engineered features add little** on the easy tabular set (they rank
+  low in importance) — reported as an honest negative result.
+- Clustering reveals **soft attack-family structure**, not clean-cut groups.
+- Our numbers sit squarely in the literature's **99.5–100% band** for this
+  dataset, consistent with published critiques of phishing-benchmark
+  leakage.
+
+## Getting started (macOS)
+
+We use [uv](https://docs.astral.sh/uv/) for reproducible environments.
 
 ```bash
-./init.sh                          # installs uv, syncs dependencies, registers the Jupyter kernel
+./init.sh                          # installs uv, syncs deps, registers the Jupyter kernel
 uv run python code/fetch_data.py   # caches the dataset to data/phiusiil.csv (run once)
 ./start_jupyter.sh                 # launches Jupyter Lab
 ```
 
-See **[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)** for full setup instructions,
-everyday `uv` commands, and the shared-notebook workflow.
+Inside a notebook, select the **"AAI-501 (Group 2)"** kernel. Full setup,
+everyday `uv` commands, and the linting/notebook workflow are in
+**[docs/DEVELOPMENT.md](docs/DEVELOPMENT.md)**.
 
-## Project Checklist
+## Repository layout
 
-### Module 1 — Team Setup
-- [x] Complete the final team project survey (by end of Week 1)
-- [x] Exchange contact info with all team members (Canvas, USD Email, or Slack)
-- [x] Create GitHub repository and add all team members as collaborators
-- [x] Add a `README.md` to the repository
-- [x] Agree on a communication cadence for the rest of the project
+```
+code/    three notebooks (run in order) + fetch_data.py
+docs/    DEVELOPMENT.md (setup) and proposal.pdf
+data/    dataset + generated artifacts (git-ignored; recreated by fetch_data.py + notebooks)
+```
 
-### Module 3 — Proposal *(Due: Assignment 3.3, 11:59 PM)*
-- [x] Identify an AI-driven problem and dataset (≥1000 examples, not used in coursework)
-- [x] Select at least two AI/ML algorithm types to investigate (e.g., Classification + Clustering)
-- [x] Write 1–2 page proposal including:
-  - [x] Clear problem statement
-  - [x] Brief discussion of problem and intended algorithms/system
-  - [x] Identification of specific related course topics
-  - [x] Expected system behaviors and problem types the algorithms handle
-  - [x] Issues/challenges you expect to focus on
-  - [x] Reference list (APA 7) of books/papers/articles to inform the project
-- [x] One team member submits the proposal to Canvas
+## Reference
 
-### Module 4 — Status Update *(Due: Assignment 4.3, 11:59 PM)*
-- [ ] Submit the Final Team Project Status Update Form
+Prasad, A., & Chandra, S. (2024). PhiUSIIL: A diverse security profile
+empowered phishing URL detection framework based on similarity index and
+incremental learning. *Computers & Security, 136*, 103545.
+https://doi.org/10.1016/j.cose.2023.103545
 
-### Modules 4–6 — Implementation
-- [x] Set up project structure and development environment
-- [x] Acquire and perform initial data preprocessing (leakage audit + EDA, notebook 01)
-- [x] Implement first AI/ML algorithm (classification: LogReg / RandomForest / XGBoost, notebook 02)
-- [ ] Implement second AI/ML algorithm (different type — clustering, notebook 03)
-- [ ] Run experiments and comparisons between algorithms
-- [x] Apply parameter tuning and/or feature selection as appropriate (RandomizedSearchCV + top-8, notebook 02)
-- [x] Generate summary statistics and visualizations of findings (notebook 02)
-- [ ] Follow PEP 8 style guide throughout all Python code
-- [ ] Commit code regularly to GitHub (all members contributing)
-
-### Module 7 — Final Deliverables *(Due: Assignment 7.2, 11:59 PM)*
-
-#### Presentation
-- [ ] Each member prepares their equal portion of the presentation
-- [ ] Record the final presentation (20–30 minutes total, good audio quality)
-- [ ] Upload recording to YouTube or Vimeo
-- [ ] Add video link to the title page of the slide deck
-- [ ] Finalize and export presentation slides
-
-#### Paper (~10 pages, APA 7 format)
-- [ ] Write project purpose, goals, and scope (with references)
-- [ ] Clearly specify each AI algorithm used
-- [ ] Include analysis, evaluation, and critique of algorithms and implementation
-- [ ] Present empirical comparison results graphically
-- [ ] Write appendix listing each member's detailed contributions
-
-#### Code
-- [ ] Clean, document, and organize all source code
-- [ ] Add GitHub repository link to the paper
-
-#### Submission
-- [ ] One team member submits to Canvas:
-  - [ ] Final Project Presentation Slides (with video link)
-  - [ ] Final Project Paper (with GitHub link)
-  - [ ] Complete source code (or GitHub link)
-- [ ] Each member submits the Peer Evaluation form individually (separate Canvas link)
-
----
+The full state-of-the-art comparison and its citations are in
+`code/03_charcnn_clustering_sota.ipynb`.
