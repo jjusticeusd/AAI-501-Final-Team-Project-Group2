@@ -89,10 +89,16 @@ phishing rows into interpretable attack families. The character model
 reaches 0.9985 accuracy and 0.9993 PR-AUC using only URL characters,
 essentially tying the full-feature tabular models and demonstrating that
 the separability lives in the URL strings themselves. All supervised
-models land inside the published 99.5--100\% PhiUSIIL band. We therefore
-frame the contribution not as a new accuracy ceiling but as an explanation
-of why the ceiling exists and what kinds of phishing the benchmark
-contains.}
+models land inside the published 99.5--100\% PhiUSIIL band. A closing
+validity analysis confirms the full-versus-URL-only gap is statistically
+real (McNemar $p \approx 2 \times 10^{-24}$) but operationally hollow: at
+a realistic 1-in-10{,}000 phishing prevalence the URL-only model's
+precision falls to about 18\%, and a lexical model trained on this
+benchmark collapses to 45.3\% accuracy on an independently collected
+corpus after learning a third collection artifact (PhiUSIIL's legitimate
+URLs are homepages with empty paths). We therefore frame the contribution
+not as a new accuracy ceiling but as an explanation of why the ceiling
+exists and what kinds of phishing the benchmark contains.}
 
 \begin{document}
 \maketitle
@@ -137,7 +143,7 @@ unsupervised clustering (KMeans and HDBSCAN) to characterize structure
 within the phishing class, satisfying the requirement to combine at least
 two different algorithm types.
 
-The report follows the three notebooks that make up the project code.
+The report follows the four notebooks that make up the project code.
 Section~2 presents the data audit and exploratory analysis (Notebook 01,
 Guna Pasupathy), which establishes the leakage-clean feature set and split
 conventions used everywhere else. Section~3 presents the classical models,
@@ -145,8 +151,11 @@ class-imbalance handling, tuning, feature importance, and a
 cost-sensitive decision layer (Notebook 02, Jason Justice). Section~4
 presents the grouping decision, the character-level model, the clustering
 of attack families, and the state-of-the-art comparison (Notebook 03,
-Pranav Dhinakar). Section~5 synthesizes the three notebooks against the
-leakage thesis and the project requirements, and Section~6 concludes.
+Pranav Dhinakar). Section~5 presents the validity and error analysis
+(Notebook 04): statistical significance, base rates, an inspection of the
+remaining misses, and a cross-dataset transfer test. Section~6
+synthesizes the notebooks against the leakage thesis and the project
+requirements, and Section~7 concludes.
 
 % =====================================================================
 \section{Data, Leakage Audit, and Exploratory Analysis}
@@ -1013,6 +1022,194 @@ the clustering, which together characterize what makes the benchmark easy
 and what kinds of phishing it contains.
 
 % =====================================================================
+\section{Validity and Error Analysis}
+% Notebook 04 - Guna Pasupathy. Verbatim notes.
+% =====================================================================
+
+\emph{This section reproduces Notebook 04 (author: Guna Pasupathy).
+Notebooks 02 and 03 produced near-perfect scores; this notebook asks the
+follow-up questions those scores raise: whether the differences between
+the models are statistically meaningful, what the benchmark numbers mean
+at realistic phishing base rates, what the URLs the models still miss
+look like, and whether any of the performance transfers to phishing data
+collected by someone else. It uses the same dedupe and domain-grouped
+split as Notebooks 02 and 03, so all numbers are comparable.}
+
+\subsection{Two Regimes, Rebuilt}
+
+The notebook rebuilds XGBoost (Notebook 02's settings; the tuned
+parameters equal the defaults) in two feature regimes. \textbf{Full} is
+the 49 leakage-clean features. \textbf{URL-only} is the 21 features
+computable from the URL string itself, nothing that requires fetching the
+page --- the pre-click deployment setting. On the shared 46{,}632-row test
+set the full model makes 2 errors (0 false positives, 2 false negatives;
+accuracy 1.0000 at four decimals) and the URL-only model makes 90
+(12 false positives, 78 false negatives; accuracy 0.9981).
+
+\subsection{Engineered Features in the URL-Only Regime}
+
+Notebook 02 left one question open: the engineered features were useless
+next to the content features, but would they matter when \emph{only} the
+URL is available? Recomputing them and adding them to the URL-only model
+answers no, again: accuracy is essentially unchanged (0.9980 versus
+0.9981, with one more false negative), and their importance ranks sit at
+14--22 out of 26. That closes Notebook 02's question as a negative result
+in both regimes. A related check: dropping \code{IsHTTPS}, the collection
+artifact, costs only about 0.0004 accuracy, so the URL-only result does
+not secretly lean on it.
+
+\subsection{Are the Model Differences Statistically Real?}
+
+With 2 errors versus 90 it would be easy to wave hands; instead the gap
+is tested. Bootstrap 95\% confidence intervals over the test set are
+0.99996 $[0.99989, 1.00000]$ for the full model and 0.99807
+$[0.99764, 0.99846]$ for the URL-only model --- non-overlapping. McNemar's
+exact test on the paired predictions (the appropriate test when two
+models share one test set) counts 90 URLs that only the URL-only model
+gets wrong against 2 that only the full model gets wrong, giving
+$p \approx 1.7 \times 10^{-24}$. The full model really is better than the
+URL-only model on this test set.
+
+\subsection{The Base-Rate Problem}
+
+The test set is 42.3\% phishing, but real traffic is nothing like that: a
+mail gateway or browser sees maybe one phishing URL per 1{,}000--10{,}000
+\parencite{das2019sok}. Precision at deployment depends on prevalence
+$\pi$:
+\[
+\mathrm{precision}(\pi) =
+\frac{\pi \cdot \mathrm{TPR}}
+     {\pi \cdot \mathrm{TPR} + (1 - \pi) \cdot \mathrm{FPR}}.
+\]
+One subtlety: the full model had \emph{zero} observed false positives,
+which makes its false-positive rate look like exactly 0. Zero observed
+events does not mean a zero rate; the ``rule of three'' gives a 95\%
+upper bound of $3/n$ for an event never seen in $n$ trials, so the
+pessimistic curve uses $\mathrm{FPR} \leq 3/26{,}923$. The resulting
+curves (Figure~\ref{fig:base-rates}) and selected points
+(Table~\ref{tab:base-rates}) are the report's sharpest statement of what
+benchmark accuracy does not mean.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{figures/fig_base_rates.png}
+\caption{Precision of the phishing flag as a function of phishing
+prevalence in traffic (log scale). Benchmark prevalence (0.43) is marked
+on the right; a realistic 1-in-10{,}000 rate on the left. The full-model
+curve is the pessimistic rule-of-three bound.}
+\label{fig:base-rates}
+\end{figure}
+
+\begin{table}[htbp]
+\centering
+\caption{Precision at selected phishing prevalences.}
+\label{tab:base-rates}
+\begin{tabular}{lcc}
+\toprule
+Prevalence & Full model (pessimistic) & URL-only model \\
+\midrule
+0.43 (benchmark) & 1.000 & 0.999 \\
+1 in 100         & 0.989 & 0.958 \\
+1 in 1{,}000     & 0.900 & 0.691 \\
+1 in 10{,}000    & 0.473 & 0.183 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The URL-only model --- 99.81\% accurate on the benchmark --- has roughly
+18\% precision at a 1-in-10{,}000 prevalence: five of every six warnings
+would be false alarms. Even the full model, with zero observed false
+positives, can only be \emph{certified} (95\% confidence) to about 47\%
+precision there; the test set is simply too small to certify performance
+at realistic base rates. Benchmark accuracy is a property of the
+benchmark, and any deployment claim needs orders of magnitude more
+legitimate-URL testing.
+
+\subsection{Error Analysis: What Still Gets Missed}
+
+The 78 phishing URLs the URL-only model misses are not a random sample;
+they are the \emph{well-crafted} ones. Their median \code{IsHTTPS} is 1
+(versus 0 for caught phishing), their median \code{TLDLegitimateProb} is
+0.523 (versus 0.018), and they are short, clean strings. The examples are
+classic brand impersonations: \code{support-lcioud-maps.info} (iCloud
+with the l/i swapped), \code{coinbesaprime-logi.com} (Coinbase),
+\code{bendigo-verification.com} (a bank). The model catches the sloppy
+phish and misses exactly the dangerous ones. Ironically these are the
+URLs the \code{brand\_distance} feature was designed for, and it still
+did not help: whole-string edit distance fails on compound domains like
+\code{coinbesaprime-logi}, where the brand is \emph{inside} the string
+rather than near it in edit distance. A token- or substring-level brand
+match is the concrete future-work fix, and this error analysis is the
+evidence for why it should work.
+
+\subsection{Does Any of It Transfer to a Different Dataset?}
+
+Everything so far, even the base-rate analysis, still uses PhiUSIIL's own
+test split. The real question is whether a model trained on PhiUSIIL
+works on phishing data collected by someone else. The test corpus is the
+URL dataset published by \textcite{sahingoz2019}, the same paper the
+state-of-the-art comparison uses as its firmest external number: 73{,}575
+raw URLs, which reduce to 54{,}681 usable ones (29{,}910 legitimate,
+24{,}771 phishing) after removing duplicates and roughly 200 entries with
+no URL scheme. To make the test fair, none of PhiUSIIL's provided columns
+are used: about 20 lexical features are recomputed with the notebook's
+own code, identically, from the raw URL text of both datasets.
+\code{IsHTTPS} is deliberately excluded as a known artifact. (TLDs never
+seen in PhiUSIIL fall back to a legitimate-probability of 0.0, a
+pessimistic default that turns out not to matter.) The model trains on
+the same PhiUSIIL train split, is sanity-checked on the PhiUSIIL test
+split, and then predicts on the external corpus with no retraining.
+
+The benchmark model does not survive contact with other data. On
+PhiUSIIL's own test split the lexical model reaches 99.7\% accuracy; on
+the external corpus it collapses to \textbf{45.3\%}, worse than the
+54.7\% all-legitimate baseline, because it flags essentially every
+legitimate URL as phishing (29{,}910 false positives). The feature
+importances say why: \code{path\_len} alone carries about 76\% of the
+model. In PhiUSIIL the median legitimate URL has a path length of 0 (the
+legitimate set consists of homepages), while the median external
+legitimate URL has a 29-character path (real browsing includes deep
+links). The model learned ``URL has a path $\Rightarrow$ phishing'' --- a
+collection artifact that is invisible inside the benchmark and fatal
+outside it. That is the third artifact this project has caught, after
+\code{URLSimilarityIndex} and \code{IsHTTPS}, and the only one that could
+not have been found without testing across datasets.
+
+If the artifact-prone features are removed and the model sees only the
+\emph{hostname}, where a URL filter has the least room for artifacts, a
+10-feature host-only model is more honest on both ends: 87.9\% on
+PhiUSIIL (no artifact inflation) and 70.0\% on the external corpus,
+clearly above the 54.7\% baseline and clearly below anything the
+benchmark would advertise. There is transferable signal in the domain
+name, but it is modest. Two caveats: the external corpus is from 2019, so
+the drop mixes distribution shift with several years of temporal drift,
+and its legitimate set was collected differently (browsing-style URLs
+versus curated homepages). But that is exactly the point --- every
+deployment faces those shifts, and no benchmark number here predicted
+them.
+
+\subsection{Summary of the Validity Analysis}
+
+\begin{itemize}
+  \item \textbf{The engineered features fail in both regimes}; Notebook
+    02's open question is closed as a negative result.
+  \item \textbf{The full-versus-URL-only gap is statistically real}
+    (McNemar $p \approx 10^{-24}$, non-overlapping bootstrap intervals);
+    it is not noise.
+  \item \textbf{Base rates change everything}: 99.8\% benchmark accuracy
+    becomes roughly 18\% precision at a 1-in-10{,}000 prevalence, and
+    even the zero-false-positive full model can only be certified to
+    about 47\% there.
+  \item \textbf{The remaining misses are the dangerous ones}: crafted
+    HTTPS brand impersonations on reputable TLDs, which whole-string
+    edit distance cannot catch.
+  \item \textbf{Nothing close to the benchmark numbers transfers}: the
+    lexical model drops from 99.7\% to 45.3\% cross-dataset after
+    learning a homepage artifact; a host-only model transfers at 70.0\%,
+    real but modest signal.
+\end{itemize}
+
+% =====================================================================
 \section{Synthesis and Discussion}
 % (Written for the report; minimal, ties everything together.)
 % =====================================================================
@@ -1030,6 +1227,20 @@ cannot leak, still reached 0.9985 accuracy. Three different attempts to
 make the problem harder all failed to move the number in any meaningful
 way. That consistency is the result.
 
+Notebook 04 then turns the same skepticism outward, and the outside view
+completes the argument. Inside the benchmark, the gap between the
+full-feature and URL-only regimes is statistically real (McNemar
+$p \approx 2 \times 10^{-24}$), yet the base-rate analysis shows what the
+saturated numbers do not mean: at a realistic 1-in-10{,}000 phishing
+prevalence the URL-only model's precision falls to about 18\%, and even
+the zero-false-positive full model can only be certified to about 47\%
+with a test set of this size. The cross-dataset transfer test is the
+sharpest evidence for the leakage thesis: a lexical model that scores
+99.7\% inside PhiUSIIL collapses to 45.3\% on the corpus of
+\textcite{sahingoz2019}, because it had learned that URLs with paths are
+phishing --- an artifact of PhiUSIIL's homepage-only legitimate set that
+no within-benchmark experiment could reveal.
+
 The project also satisfies the course requirement to combine at least two
 algorithm families under experimental comparison. It uses supervised
 classification (logistic regression, random forest, and XGBoost) and
@@ -1037,9 +1248,11 @@ unsupervised clustering (KMeans and HDBSCAN), and it runs several
 controlled comparisons within those: an imbalance ablation
 (none versus class weighting versus SMOTE), hyperparameter tuning with
 grouped cross-validation, a full-model versus top-8-feature comparison, a
-partition-based versus density-based clustering cross-check, and a
+partition-based versus density-based clustering cross-check, a
 character-level model set against both the tabular models and the
-published literature. The empirical comparisons are presented graphically
+published literature, a statistical-significance check on paired
+predictions (bootstrap intervals and McNemar's test), and a cross-dataset
+transfer experiment. The empirical comparisons are presented graphically
 where possible, as the assignment prefers.
 
 Two things are worth stating about what the project does and does not
@@ -1068,10 +1281,14 @@ clustering that names attack families. The exact-domain split also leaves
 platform-level siblings on shared hosting on both sides of the split,
 which the character model is more exposed to than the linear model; the
 grouping analysis suggests this is not the main driver, but a fully
-platform-aware split would close the gap. Natural next steps are to test
-the trained models on a different corpus to measure how much of the
-performance is PhiUSIIL-specific, and to feed the kit-level structure that
-HDBSCAN surfaced into a more operational grouping of phishing campaigns.
+platform-aware split would close the gap. Notebook 04 ran the natural
+next test --- a different corpus --- and the answer was decisive: almost
+none of the lexical performance is portable, though a host-only model
+retains a modest 70\% externally. The remaining next steps are a token-
+or substring-level brand matcher (the error analysis shows whole-string
+edit distance misses compound-domain typosquats), and feeding the
+kit-level structure that HDBSCAN surfaced into a more operational
+grouping of phishing campaigns.
 
 % =====================================================================
 \section{Conclusion}
@@ -1083,9 +1300,14 @@ classifiers with imbalance, tuning, feature-importance and cost-sensitive
 analyses, a character-level convolutional model on the raw URL string, and
 an unsupervised clustering of phishing into attack families. Every
 supervised model landed in the published 99.5--100\% band, and the
-leakage-immune character model essentially tied them. The contribution is
-not a new accuracy number but an explanation of why the benchmark is easy,
-established from three independent directions, together with a
+leakage-immune character model essentially tied them. A closing validity
+analysis added the outside view: the remaining model differences are
+statistically real but collapse at realistic base rates, and a lexical
+model trained on this benchmark fails outright on an independently
+collected corpus, having learned the benchmark's own collection
+artifacts. The contribution is not a new accuracy number but an
+explanation of why the benchmark is easy, established from several
+independent directions inside and outside the benchmark, together with a
 characterization of the kinds of phishing the dataset contains. The result
 is a report that treats near-perfect accuracy as something to be
 explained rather than celebrated.
@@ -1106,7 +1328,11 @@ end to end and the report assembled collaboratively.
 \begin{itemize}
   \item \textbf{Guna Pasupathy} authored Notebook 01 (data loading, the
     three-part leakage audit, exploratory data analysis, and the saved
-    leakage-clean feature manifest that the other notebooks consume).
+    leakage-clean feature manifest that the other notebooks consume) and
+    Notebook 04 (the validity and error analysis: the two-regime rebuild,
+    bootstrap and McNemar significance tests, the base-rate analysis,
+    the inspection of missed URLs, and the cross-dataset transfer
+    experiment).
   \item \textbf{Jason Justice} authored Notebook 02 (feature engineering
     from the raw URL/Domain strings, the three classical classifiers, the
     class-imbalance ablation, hyperparameter tuning, feature-importance
@@ -1154,5 +1380,8 @@ repository linked on the title page.
 
 \subsection{Notebook 03 -- CharCNN, Clustering, SOTA (Pranav Dhinakar)}
 \lstinputlisting[style=py]{source_code/nb03.py}
+
+\subsection{Notebook 04 -- Validity and Error Analysis (Guna Pasupathy)}
+\lstinputlisting[style=py]{source_code/nb04.py}
 
 \end{document}
